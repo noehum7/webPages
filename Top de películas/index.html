@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Top de peliculas actuales">
+  <title>Top de películas actuales</title>
+  <link rel="shortcut icon" href="Imágenes/film.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="index.js" type="module"></script>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Top de películas🎥</h1>
+
+    <nav id="menu">
+      <ul>
+        <li>
+          <a href="#inicio-peliculas" id="inicio">Inicio</a>
+        </li>
+        <li>
+          <a href="#mostrar-peliculas" id="mostrar">Mostrar películas</a>
+        </li>
+        <li>
+          <a href="#anadir-peliculas" id="anadir">Añadir películas</a>
+        </li>
+        <li>
+          <a href="#buscar-peliculas" id="buscar">Buscar películas</a>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <div class="inicio-container">
+      <section id="inicio-peliculas">
+        <h2>Bienvenido a nuestra página web de películas🎞️</h2>
+        <p>
+          En nuestra página podrás encontrar una selección de las mejores películas del momento. <br>
+          Además, podrás añadir tus películas favoritas a tu lista personalizada, buscar entre las películas que tenemos
+          guardadas en nuestra base de datos y guardar como favoritas las que más te gusten. ¡Explora nuestro catálogo y
+          encuentra tu próxima película favorita!
+        </p>
+      </section>
+    </div>
+
+    <div class="peliculas-container" hidden>
+      <section id="mostrar-peliculas">
+      </section>
+    </div>
+
+    <div class="form-container" hidden>
+      <section id="anadir-peliculas">
+        <form class="form" netlify name="films">
+          <fieldset>
+            <div class="input-container">
+              <label for="fTitulo">Título de la película
+                <input type="text" id="fTitulo" required>
+              </label>
+            </div>
+            <div class="input-container">
+              <label for="fUrl">Link de Rotten Tomatoes🍅
+                <input type="url" id="fUrl" required>
+              </label>
+            </div>
+            <div class="input-container">
+              <label for="fImg">Link de imagen
+                <input type="text" id="fImg" required/>
+              </label>
+            </div>
+            <div class="input-container">
+              <label for="fActores">Actores principales
+                <input type="text" id="fActores" required>
+              </label>
+            </div>
+            <div class="input-container">
+              <label for="fDirector">Director/es
+                <input type="text" id="fDirector" required>
+              </label>
+            </div>
+            <div class="input-container">
+              <label for="fAge">Año de estreno
+                <input type="text" id="fAge" required>
+              </label>
+            </div>
+            <div class="form-btn-container">
+              <button type="submit" id="btn-add">Añadir película ✅</button>
+              <button type="reset" class="btn-limpiar">Borrar datos ❌</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+
+    <div class="busqueda-container" hidden>
+      <section id="buscar-peliculas">
+        <search>
+          <label>
+            <input type="search" name="titulo" class="titulo-busqueda">
+          </label>
+          <button class="btn-lookFor">Buscar película</button>
+          <img src="Imágenes/lupa.png" alt="Icono de búsqueda" class="lupa-img">
+          <div class="pelicula-encontrada">
+          </div>
+          <div class="pelicula-no-encontrada">
+          </div>
+        </search>
+      </section>
+    </div>
+
+  </main>
+
+  <template>
+    <div id="film">
+      <h2 class="title"></h2>
+      <img src="" alt="" id="img">
+      <span class="year">Año de estreno: </span><br>
+      <span class="starring">Actores:</span>
+      <ul class="list"></ul>
+      <span class="director">Dirigida por: </span><br>
+      <label>
+        <input type="checkbox" name="favorita" class="favorita">
+        <span class="favorito
+        ">Favorita</span>
+      </label>
+    </div>
+  </template>
+
+</body>
+
+</html>
