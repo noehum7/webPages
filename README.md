@@ -1,2 +1,2 @@
 # webPages
-Aquí iré subiendo diferentes proyectos de páginas web.
+En este repositorio iré subiendo diferentes proyectos de páginas web💻.
