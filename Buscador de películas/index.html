@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoPelículas</title>
+    <link rel="shortcut icon" href="/imagenes/cine.jpg" type="image/x-icon">
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 id="titulo">Todo películas <i class="fa-solid fa-film" style="color: #089ae2;"></i></h1>
+      <nav class="menu">
+        <ul class="menu-content">
+          <li><a href="#inicio"><i class="fa-solid fa-house link-icon"></i> Inicio</a></li>
+          <li><a href="/favoritas.html" class="section-favoritas"><i class="fa-solid fa-heart link-icon"></i> Favoritas</a></li>
+          <li><a href="/pendientes.html" class="section-pendientes"><i class="fa-solid fa-hourglass-half link-icon"></i> Pendientes</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="inicio-container">
+        <section id="inicio">
+          <h2 class="titulo-inicio">TodoPelículas: tu portal de cine online <i class="fa-solid fa-clapperboard"></i></h2>
+          <p>Bienvenido a TodoPelículas, donde podrás ver las películas que están actualmente en cartelera, buscar una
+            película por su título, añadirla a tu lista de favoritas o a tu lista de pendientes. ¡Descubre el mundo del
+            cine con TodoPelículas!
+          </p>
+        </section>
+      </div>
+      <div class="cartelera-container">
+        <h2 class="titulo-cartelera">Películas en cartelera <i class="fa-solid fa-video"></i>
+        </h2>
+        <section class="peliculas-cartelera">
+        </section>
+      </div>
+      <div class="recomendaciones-container">
+        <h2>Películas recomendadas</h2>
+        <section class="peliculas-recomendadas">
+        </section>
+      </div>
+    </main>
+
+    <aside id="buscador">
+      <search class="busqueda">
+        <h3 class="titulo-buscar">Buscar película</h3>
+        <label for="titulos">Título</label>
+        <input type="search" name="titulos" id="titulos">
+        <label for="year">Año</label>
+        <input type="search" name="year" id="year" disabled>
+        <div class="boton-lupa">
+          <button type="submit" class="buscar">Buscar</button>
+          <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-xl"></i>
+        </div>
+      </search>
+      <div class="busqueda-container">
+
+      </div>
+    </aside>
+
+    <footer>
+      <p>Todos los derechos reservados &copy; 2023</p>
+    </footer>
+
+    <template id="template-film">
+      <div class="film">
+        <h3 class="title"></h3>
+        <img src="" alt="" class="img">
+        <h3 class="titulo">Sinopsis</h3>
+        <div class="sinopsis-container">
+          <span class="sinopsis"></span>
+        </div>
+        <button type="button" class="datos">Ver más</button>
+        <div class="datosExtra-container" hidden>
+          <h3 class="titulo">Actores</h3>
+          <ul class="lista-actores"></ul>
+          <h3 class="titulo">Director</h3>
+          <span class="director"></span>
+          <h3 class="titulo">Fecha de estreno</h3>
+          <span class="fecha"></span>
+          <h3 class="titulo">Idioma original</h3>
+          <span class="idioma"></span>
+          <h3 class="titulo">Géneros</h3>
+          <span class="generos"></span>
+          <h3 class="titulo">Duración</h3>
+          <span class="duracion"></span>
+          <h3 class="titulo">Presupuesto</h3>
+          <span class="presupuesto"></span>
+          <h3 class="titulo">Recaudación</h3>
+          <span class="recaudacion"></span>
+        </div>
+        <label class="favorita">
+          <input type="checkbox" name="favorita" class="favorita">
+          <span class="favorito">Favorita</span>
+        </label>
+        <label class="pendiente">
+          <input type="checkbox" name="pendiente" class="pendiente">
+          <span class="pendiente">Pendiente</span>
+        </label>
+      </div>
+    </template>
+    
+    <template id="template-recomendadas">
+      <div class="film-recomendadas">
+        <img src="" alt="" class="img">
+      </div>
+    </template>
+
+  </body>
+
+</html>
+

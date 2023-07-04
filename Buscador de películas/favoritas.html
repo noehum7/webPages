@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TodoPelículas</title>
+  <link rel="shortcut icon" href="/imagenes/cine.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <script defer src="favoritas.js"></script>
+</head>
+<body class="favoritas">
+  <header class="header" class="favoritas">
+    <h1 id="titulo">Todo películas <i class="fa-solid fa-film" style="color: #089ae2;"></i></h1>
+    <nav class="menu">
+      <ul>
+        <li><a href="/index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="/favoritas.html" class="section-favoritas"><i class="fa-solid fa-heart"></i> Favoritas</a></li>
+        <li><a href="/pendientes.html" class="section-pendientes"><i class="fa-solid fa-hourglass-half"></i> Pendientes</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="favoritas">
+    <section id="favoritas">
+      <h2 class="titulo-favoritas">Películas favoritas</h2>
+      <div class="favoritas-container">
+  
+      </div>
+    </section>
+  </main>
+
+  <footer class="favoritas">
+    <p>Todos los derechos reservados &copy; 2023</p>
+  </footer>
+
+
+  <template id="template-film-favorita">
+    <div class="film">
+      <h3 class="title"></h3>
+      <img src="" alt="" class="img">
+      <h3 class="titulo">Sinopsis</h3>
+      <div class="sinopsis-container">
+          <span class="sinopsis"></span>
+      </div>
+      <button type="button" class="datos">Ver más</button>
+      <div class="datosExtra-container" hidden>
+        <h3 class="titulo">Actores</h3>
+        <ul class="lista-actores"></ul>
+        <h3 class="titulo">Director</h3>
+        <span class="director"></span>
+        <h3 class="titulo">Fecha de estreno</h3>
+        <span class="fecha"></span>
+        <h3 class="titulo">Idioma original</h3>
+        <span class="idioma"></span>
+        <h3 class="titulo">Géneros</h3>
+        <span class="generos"></span>
+        <h3 class="titulo">Duración</h3>
+        <span class="duracion"></span>
+        <h3 class="titulo">Presupuesto</h3>
+        <span class="presupuesto"></span>
+        <h3 class="titulo">Recaudación</h3>
+        <span class="recaudacion"></span>
+      </div>
+      <label class="favorita">
+        <input type="checkbox" name="favorita" class="favorita">
+        <span class="favorito
+        ">Quitar favorita <i class="fa-solid fa-x" style="color: #ff0000;"></i></span>
+      </label>
+      <!-- <label class="pendiente">
+        <input type="checkbox" name="pendiente" class="pendiente">
+        <span class="pendiente
+        ">Pendiente</span>
+      </label> -->
+    </div>
+  </template>
+</body>
+</html>
