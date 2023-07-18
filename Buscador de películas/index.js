@@ -10,6 +10,7 @@ const sectionBusquedaPeliculas = document.querySelector(".busqueda-container");
 const inputTitulo = document.querySelector("input#titulos");
 const inputYear = document.querySelector("input#year");
 const botonBuscar = document.querySelector("button.buscar");
+const botonLupa = document.querySelector(".btn-lupa");
 
 const fragment = document.createDocumentFragment();
 
@@ -72,10 +73,10 @@ function crearPelicula({
   genres.textContent = generos.join(", ");
   runtime.textContent = `${duracion} minutos`;
   presupuesto === 0
-    ? (budget.textContent = `Presupuesto no disponible`)
+    ? (budget.textContent = `Presupuesto no disponible.`)
     : (budget.textContent = `${presupuesto}$`);
   recaudacion === 0
-    ? (revenue.textContent = `Recaudación no disponible`)
+    ? (revenue.textContent = `Recaudación no disponible.`)
     : (revenue.textContent = `${recaudacion}$`);
   film.id = id;
   film.generosID = genre_ids;
@@ -148,7 +149,6 @@ function marcarFavoritaPendiente(film) {
     if (checkbox.checked) {
       arrayPendientes.push(objetoPelicula);
     } else {
-      // let index = arrayPendientes.indexOf(pelicula);
       let index = arrayPendientes.findIndex(
         (pelicula) => pelicula.title === objetoPelicula.title
       );
@@ -248,6 +248,14 @@ function generosFavoritos() {
   return masRepetidos.slice(0, 2);
 }
 
+//Eventos
+inputTitulo.addEventListener("change", desbloquearInputYear);
+botonLupa.addEventListener("click", () => {
+  const buscador = document.querySelector("#buscador");
+  buscador.classList.toggle("hidden");
+  buscador.scrollIntoView({ behavior: "smooth" });
+})
+
 //Funciones asíncronas
 async function getPeliculasCartelera() {
   try {
@@ -294,7 +302,6 @@ async function getPeliculasCartelera() {
       });
     }
     return peliculasConActoresDirector;
-    // return peliculas;
   } catch (error) {
     return console.log(`Error: ${error.message}`);
   }
@@ -342,7 +349,6 @@ async function buscarPelicula() {
       };
 
       return peliculasConActoresDirector;
-      // return objetoPelicula;
     } else {
       throw new Error(`No se ha encontrado la película ${titulo}`);
     }
@@ -370,16 +376,12 @@ async function peliculasRecomendadas() {
   }
 }
 
-//Eventos
-inputTitulo.addEventListener("change", desbloquearInputYear);
-
 //Manejo funciones asíncronas
 getPeliculasCartelera()
   .then((peliculas) => {
     arrayPeliculas = [...peliculas];
     mostrarPeliculas();
     recuperarFavoritasPendientes();
-    // generosFavoritos();
   })
   .catch((error) => console.error(error));
 
@@ -392,7 +394,6 @@ botonBuscar.addEventListener("click", () => {
         fragment.append(film);
         sectionBusquedaPeliculas.append(fragment);
         recuperarFavoritasPendientes();
-        // generosFavoritos();
       }
     })
     .catch((error) => console.error(error));
@@ -402,28 +403,6 @@ peliculasRecomendadas()
   .then((peliculas) => {
     generosFavoritos();
     peliculas.forEach((pelicula) => {
-      // const cloneFilm = templateFilm.cloneNode(true);
-      // const film = cloneFilm.querySelector(".film");
-      // const titulo = film.querySelector(".title");
-      // const img = film.querySelector(".img");
-      // const sinopsis = film.querySelector(".sinopsis");
-      // const fecha = film.querySelector(".fecha");
-      // const idioma = film.querySelector(".idioma");
-
-      // titulo.textContent = pelicula.title;
-      // img.src = `https://image.tmdb.org/t/p/w200/${pelicula.poster_path}`;
-      // img.alt = pelicula.title;
-      // sinopsis.textContent = pelicula.overview;
-      // fecha.textContent = pelicula.release_date;
-      // idioma.textContent = pelicula.original_language;
-      // film.id = pelicula.id;
-      // film.querySelector("button").setAttribute("hidden", true);
-      // film.querySelectorAll("label").forEach(input => input.setAttribute("hidden", true));
-
-      // fragment.append(film);
-      // document.querySelector(".peliculas-recomendadas").append(fragment);
-      // expandirSinopsis(film);
-      // redirigirTMDB(film);
       const clone = templateRecomendadas.cloneNode(true);
       const film = clone.querySelector(".film-recomendadas");
       const img = film.querySelector(".img");
