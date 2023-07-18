@@ -1,0 +1,1 @@
+En este proyecto he creado una página web en la que se muestran películas que están actualmente en cartelera. También hay una sección para añadir películas favoritas y otra para películas pendientes. En la pestaña de inicio puedes hacer uso de un buscador para encontrar la película que quieras y poder añadirla a favoritas o pendientes.
