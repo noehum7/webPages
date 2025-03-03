@@ -146,9 +146,12 @@ function marcarFavoritaPendiente(film) {
 
   pendiente.addEventListener("change", (event) => {
     const checkbox = event.target;
+    const container = checkbox.closest(".film");
     if (checkbox.checked) {
+      container.style.backgroundColor = "#E59BCB";
       arrayPendientes.push(objetoPelicula);
     } else {
+      container.style.backgroundColor = "";
       let index = arrayPendientes.findIndex(
         (pelicula) => pelicula.title === objetoPelicula.title
       );
@@ -181,6 +184,7 @@ function recuperarFavoritasPendientes() {
       if (film.title == container.querySelector("h3").textContent) {
         let pendingInput = container.querySelector("input.pendiente");
         pendingInput.checked = true;
+        container.style.backgroundColor = "#E59BCB";
       }
     });
   });
@@ -248,13 +252,15 @@ function generosFavoritos() {
   return masRepetidos.slice(0, 2);
 }
 
+
+
 //Eventos
 inputTitulo.addEventListener("change", desbloquearInputYear);
 botonLupa.addEventListener("click", () => {
   const buscador = document.querySelector("#buscador");
   buscador.classList.toggle("hidden");
   buscador.scrollIntoView({ behavior: "smooth" });
-})
+});
 
 //Funciones asíncronas
 async function getPeliculasCartelera() {
@@ -262,6 +268,9 @@ async function getPeliculasCartelera() {
     const response = await fetch(
       "https://api.themoviedb.org/3/movie/now_playing?api_key=e9b9025b16a080677491c47682019682&language=es"
     );
+    // const response = await fetch(
+    //   "https://api.themoviedb.org/3/discover/movie?api_key=e9b9025b16a080677491c47682019682&language=es-ES&region=ES&primary_release_date.gte=2023-10-01&primary_release_date.lte=2023-11-30"
+    // );
     if (!response.ok) {
       throw new Error(
         "No se ha podido obtener la lista de películas en cartelera."
@@ -361,7 +370,7 @@ async function buscarPelicula() {
 }
 
 async function peliculasRecomendadas() {
-  const genres = generosFavoritos().map(generos => generos.id);
+  const genres = generosFavoritos().map((generos) => generos.id);
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=e9b9025b16a080677491c47682019682&language=es&with_genres=${genres}`
