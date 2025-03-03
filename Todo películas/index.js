@@ -1,3 +1,5 @@
+import { API_KEY } from './config.js';
+
 //Selectores del DOM
 const templateFilm = document.querySelector("#template-film").content;
 const templateRecomendadas = document.querySelector(
@@ -266,10 +268,10 @@ botonLupa.addEventListener("click", () => {
 async function getPeliculasCartelera() {
   try {
     const response = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=e9b9025b16a080677491c47682019682&language=es"
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=es`
     );
     // const response = await fetch(
-    //   "https://api.themoviedb.org/3/discover/movie?api_key=e9b9025b16a080677491c47682019682&language=es-ES&region=ES&primary_release_date.gte=2023-10-01&primary_release_date.lte=2023-11-30"
+    //   "https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=es-ES&region=ES&primary_release_date.gte=2023-10-01&primary_release_date.lte=2023-11-30"
     // );
     if (!response.ok) {
       throw new Error(
@@ -280,7 +282,7 @@ async function getPeliculasCartelera() {
     const peliculasConActoresDirector = [];
     for (const pelicula of peliculas.results) {
       const response1 = await fetch(
-        `https://api.themoviedb.org/3/movie/${pelicula.id}/credits?api_key=e9b9025b16a080677491c47682019682&language=es`
+        `https://api.themoviedb.org/3/movie/${pelicula.id}/credits?api_key=${API_KEY}&language=es`
       );
       const creditos = await response1.json();
       const primerosActores = creditos.cast.slice(0, 3);
@@ -290,7 +292,7 @@ async function getPeliculasCartelera() {
       const actoresDirector = { primerosActores, director };
 
       const response2 = await fetch(
-        `https://api.themoviedb.org/3/movie/${pelicula.id}?api_key=e9b9025b16a080677491c47682019682`
+        `https://api.themoviedb.org/3/movie/${pelicula.id}?api_key=${API_KEY}`
       );
       const otrosDatos = await response2.json();
       const presupuesto = otrosDatos.budget;
@@ -321,7 +323,7 @@ async function buscarPelicula() {
   const year = document.querySelector("input#year").value;
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=e9b9025b16a080677491c47682019682&query=${titulo}&language=es&primary_release_year=${year}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${titulo}&language=es&primary_release_year=${year}`
     );
     if (!response.ok) {
       throw new Error(`No se ha encontrado la película ${titulo}`);
@@ -329,7 +331,7 @@ async function buscarPelicula() {
     const pelicula = await response.json();
     if (pelicula.results.length > 0) {
       const response1 = await fetch(
-        `https://api.themoviedb.org/3/movie/${pelicula.results[0].id}/credits?api_key=e9b9025b16a080677491c47682019682&language=es`
+        `https://api.themoviedb.org/3/movie/${pelicula.results[0].id}/credits?api_key=${API_KEY}&language=es`
       );
       const data1 = await response1.json(); //
       const primerosActores = data1.cast.slice(0, 3); //
@@ -337,7 +339,7 @@ async function buscarPelicula() {
       const actoresDirector = { primerosActores, director };
 
       const response2 = await fetch(
-        `https://api.themoviedb.org/3/movie/${pelicula.results[0].id}?api_key=e9b9025b16a080677491c47682019682`
+        `https://api.themoviedb.org/3/movie/${pelicula.results[0].id}?api_key=${API_KEY}`
       );
       const otrosDatos = await response2.json();
       const presupuesto = otrosDatos.budget;
@@ -373,7 +375,7 @@ async function peliculasRecomendadas() {
   const genres = generosFavoritos().map((generos) => generos.id);
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=e9b9025b16a080677491c47682019682&language=es&with_genres=${genres}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=es&with_genres=${genres}`
     );
     if (!response.ok) {
       throw new Error(`No se han podido recuperar las películas recomendadas.`);
