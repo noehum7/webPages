@@ -18,12 +18,8 @@ Todo Películas es una aplicación web interactiva que permite a los usuarios ex
 - API de The Movie Database (TMDB)
 - LocalStorage para persistencia de datos del usuario
 
-## Capturas de pantalla
-*(Aquí podrías incluir 2-3 imágenes representativas de la aplicación)*
-
 ## Demo en vivo
 Prueba la aplicación en línea: [https://todo-peliculas.netlify.app](https://todo-peliculas.netlify.app)
-
 
 ## Cómo usar la aplicación
 1. En la página principal, explora las películas actualmente en cartelera
@@ -32,11 +28,9 @@ Prueba la aplicación en línea: [https://todo-peliculas.netlify.app](https://to
 4. Añade películas a tus colecciones de "Favoritas" o "Pendientes"
 5. Visita las secciones correspondientes para gestionar tus colecciones
 
-
 ## Aprendizajes adquiridos
 - Integración con APIs externas
 - Gestión de estados y datos de usuario en el navegador
 - Implementación de interfaces de usuario dinámicas
 - Mejores prácticas en diseño responsive
 - Optimización de rendimiento en aplicaciones web
-
